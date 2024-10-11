@@ -1,0 +1,61 @@
+# Exercise 1:
+def find_range(lst, int1, int2):
+    return [num for num in lst if int1 <= num <= int2]
+int1 = int(input("Enter the lower bound: "))
+int2 = int(input("Enter the upper bound: "))
+list1 = [54, 76, 2, 4, 98, 100]
+result = find_range(list1, int1, int2)
+if result:
+  print(*result, sep="\n")
+else:
+  print("No values found within the specified range.")
+
+  #Exercise 2:
+Names = ["Maria", "Hala", "Ghady", "Ehsan", "Joe", "Zoe"]
+
+while True:
+    letter = input("Enter a letter (or 'q' to quit): ")
+
+    if letter.lower() == 'q':
+        break
+
+    matching_names = [name for name in Names if letter.lower() in name.lower()]
+
+    if matching_names:
+        print("Names containing the letter '{}':".format(letter))
+        for name in matching_names:
+            print(name)
+    else:
+        print("No names found containing the letter '{}'.".format(letter))
+
+# exercise 3:
+numbers = [-12, 4, 12, 25, 67]
+while True:
+    num = int(input("Enter a number (or -99 to quit): "))
+    if num == -99:
+        break
+    index = 0
+    while index < len(numbers) and numbers[index] < num:
+        index += 1
+    numbers.insert(index, num)
+    print(numbers)
+    #Exercise 4:
+
+
+words = "Is this the real life? Is this just fantasy? "
+def get_slice(words, int1, int2):
+    # Check if int1 and int2 are valid indices
+    if int1 < 0 or int2 >= len(words) or int1 > int2:
+        return "Invalid indices."
+
+    # Extract the slice from the words string
+    return words[int1:int2]
+
+
+# Get input from the user
+int1 = int(input("Enter the first integer: "))
+int2 = int(input("Enter the second integer: "))
+
+# Get the slice and print it
+result = get_slice(words, int1, int2)
+print(result)
